@@ -121,7 +121,9 @@ class HTU21D
   public:
    HTU21D(HTU21D_RESOLUTION = HTU21D_RES_RH12_TEMP14);
 
-   #if defined(ESP8266)
+   #if defined(ESP8285)
+   bool     begin(uint8_t sda = 2, uint8_t scl = 14);
+   #elif defined(ESP8266)
    bool     begin(uint8_t sda = SDA, uint8_t scl = SCL);
    #else
    bool     begin(void);
